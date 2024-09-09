@@ -1,0 +1,274 @@
+/*==================Mobile Devices============================*/
+@media (min-width: 375px) {
+  
+  .title {
+    bottom: 4vh;
+  }
+
+  .track-info {
+    font-size: 17rem;
+  }
+
+  .play-btn {
+    top: 26px;
+    width: 50px;
+    height: 50px;
+    right: 109px;
+  }
+
+  .fa-play {
+    top: 31%;
+    left: 36%;
+    font-size: 133%;
+  }
+
+  .fa-pause {
+    font-size: 138%;
+  }
+}
+
+@media (min-width: 375px) and (min-height: 812px) {
+
+  .track-info {
+    margin-bottom: 13%;
+  }
+
+  .playingMediaHeight {
+    margin-bottom: 86%;
+  }
+
+  .pausedMediaHeight {
+    margin-bottom: 84%;
+  }
+
+  .bottom-section .text-container {
+    position: relative;
+    bottom: 88%;
+    margin-left: 17%;
+  }
+
+}
+
+@media (min-width: 414px) and (min-height: 896px) {
+
+  header {
+    .top-header {
+      .menu-logo-container {
+        h2 {
+          font-size: 15rem;
+        }
+        .earbuds-img {
+          width: 29rem;
+        }
+      }
+    }
+    .title {
+      width: 43%;
+      font-size: 25rem;
+    }
+  }  
+
+  .openMediaHeight {
+    margin-bottom: 30vh;
+  }
+
+  .pausedMediaHeight {
+    margin-bottom: 72%;
+  }
+
+  .playingMediaHeight {
+  margin-bottom: 46%;
+  }
+
+  .track-info {
+    font-size: 20rem;
+  }
+  
+  .track-controls {
+    bottom: 32%;
+  }
+
+  .play-btn {
+    top: 32px;
+    width: 55px;
+    height: 55px;
+    right: 118px;
+  }
+
+  .fa-play {
+    font-size: 143%;
+  }
+
+  .fa-pause {
+    font-size: 146%;
+    top: 29%;
+  }
+
+  .spinning-cover {
+    width: 66%;
+    margin-left: 17%;
+  }
+
+  .bottom-section .text-container .bottom-text {
+    font-size: 17rem;
+  }
+}
+
+/*================================Tablet Devices=======================================*/
+
+@media(min-width: 768px) {
+
+  header {
+    height: 60vh;
+
+    .title {
+      bottom: -8vh;
+      font-size: 46rem;
+    }
+  }
+
+  .music-showcase-section {
+    width: 80%;
+    margin: 0 auto;
+    
+      .music-menu {
+        margin: 7% 0;
+        font-size: 18rem;
+
+        .music-genre {
+          font-size: 18rem;
+
+          .music-logos {
+            width: 48rem;
+            margin: 0 auto;
+            padding-bottom: 5rem;
+          }
+        } 
+     }
+
+     .openMediaHeight {
+      margin-bottom: 69%;
+     }
+
+     .playingMediaHeight {
+      margin-bottom: 66%;
+    }
+
+    .pausedMediaHeight {
+      margin-bottom: 91%;
+    }
+
+     .track-information {
+      height: 38vh; 
+    }
+
+    .track-info {
+      font-size: 28rem;
+      margin-top: 0;
+      margin-bottom: 8%;
+      height: 23vh;
+    }
+
+    .track-controls {
+      bottom: 32%;
+      left: -4%;
+    }
+
+    .play-btn {
+      top: 39px;
+      width: 70px;
+      height: 70px;
+      right: 178px;
+    }
+
+    .fa-play {
+      font-size: 195%;
+      top: 29%;
+      left: 36%;
+    }
+
+    .fa-pause {
+      font-size: 184%;
+      top: 31%;
+    }
+    .track-seek-container {
+      position: relative;
+      right: 9%;
+    }
+
+    .volume-control {
+      position: relative;
+      top: 20px;
+      right: 1%;
+      width: 13%;
+    }
+
+    .fa-volume-up {
+      position: relative;
+      top: 17px;
+      left: -44px;
+      font-size: 28rem;
+   }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 226%;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      height: 25px;
+      width: 25px;
+      margin-top: -9px;
+    }
+  } 
+
+  .bottom-section {
+
+    .bottom-img {
+      width: 31%;
+      top: 1%;
+    }
+
+    .text-container {
+      position: relative;
+      bottom: 93%;
+      margin-left: 17%;
+
+      .bottom-text {
+        font-size: 25rem;
+      }
+    }
+  }
+
+  /*========================= About page =====================================*/
+
+  .about-header {
+    background-position: left;
+  }
+
+  .about-desc {
+    font-size: 25rem;
+    padding: 0 9%;
+  }
+
+  /*==================== Contact ==============================*/
+
+  .contact-header {
+    height: 66vh;
+  }
+
+  .social-container {
+
+    .contact-text {
+      font-size: 28rem;
+  }
+    .media-links {
+      margin-top: 6%;
+    }
+  }
+}
+

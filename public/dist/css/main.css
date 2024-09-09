@@ -1,0 +1,1400 @@
+/****** Elad Shechter's RESET *******/
+/*** box sizing border-box for all elements ***/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+ul, ol, dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/*============================ MIXINS ======================================================*/
+/*==================================== GENERAL =========================================*/
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 1px;
+  /*for using REM units*/
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16rem;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #222;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hideMainContent {
+  position: relative;
+  z-index: -1;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+li {
+  cursor: pointer;
+}
+
+header {
+  background-image: url("https://images.unsplash.com/photo-1445375011782-2384686778a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 36vh;
+}
+
+header .top-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .top-header .menu-logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid #040404;
+  margin-left: .5em;
+  margin-top: .5em;
+}
+
+header .top-header .menu-logo-container .earbuds-img {
+  width: 22rem;
+  margin-left: 18rem;
+  margin-top: 10rem;
+}
+
+header .top-header .menu-logo-container h2 {
+  padding: 6rem;
+  font-size: 12rem;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+}
+
+header .top-header .desktop-nav {
+  display: none;
+}
+
+header .top-header .menu-btn {
+  position: absolute;
+  top: 19rem;
+  right: 30rem;
+  z-index: 1;
+  height: 20rem;
+  width: 28rem;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .top-header .menu-btn .burger-btn {
+  position: absolute;
+  top: 10rem;
+  height: 5rem;
+  width: 30rem;
+  background-color: #040404;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .top-header .menu-btn .burger-btn::before {
+  content: '';
+  position: absolute;
+  top: -10rem;
+  height: 5rem;
+  width: 34rem;
+  background-color: #040404;
+}
+
+header .top-header .menu-btn .burger-btn::after {
+  content: '';
+  position: absolute;
+  top: 10rem;
+  height: 5rem;
+  width: 25;
+  background-color: #040404;
+}
+
+header .top-header .menu-btn .burger-btn.open {
+  -webkit-transform: rotate(720deg);
+          transform: rotate(720deg);
+  background: transparent;
+}
+
+header .top-header .menu-btn .burger-btn.open::before {
+  background: #fff;
+  -webkit-transform: rotate(45deg) translate(5px, 6px);
+          transform: rotate(45deg) translate(5px, 6px);
+}
+
+header .top-header .menu-btn .burger-btn.open::after {
+  background: #fff;
+  width: 34rem;
+  -webkit-transform: rotate(-45deg) translate(8px, -9px);
+          transform: rotate(-45deg) translate(8px, -9px);
+}
+
+header .top-header .navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  visibility: hidden;
+}
+
+header .top-header .navigation.open {
+  visibility: visible;
+}
+
+header .top-header .navigation .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #040404;
+  padding-right: 1rem;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .top-header .navigation .nav-menu.open {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+header .top-header .navigation .nav-menu__item {
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .top-header .navigation .nav-menu__item.open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  position: relative;
+  z-index: 1;
+}
+
+header .top-header .navigation .nav-menu .link {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rem;
+  text-transform: uppercase;
+  padding: 2em 0;
+  font-weight: 300;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+header .top-header .nav-menu__item:nth-child(1) {
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+
+header .top-header .nav-menu__item:nth-child(2) {
+  -webkit-transition-delay: 0.35s;
+          transition-delay: 0.35s;
+}
+
+header .top-header .nav-menu__item:nth-child(3) {
+  -webkit-transition-delay: 0.45s;
+          transition-delay: 0.45s;
+}
+
+header .title {
+  text-align: center;
+  position: relative;
+  bottom: 1vh;
+  width: 37%;
+  margin: 0 auto;
+  font-family: 'Cormorant', serif;
+  font-size: 19rem;
+  font-style: italic;
+  font-weight: bold;
+  color: #040404;
+}
+
+.music-showcase-section {
+  margin: 21rem 0;
+}
+
+.music-showcase-section .music-menu {
+  height: 67rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.music-showcase-section .music-genre {
+  cursor: pointer;
+  font-family: 'Neuton', serif;
+  font-weight: bold;
+  font-size: 12rem;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.music-showcase-section .clickBttns {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.12, 0, 0.39, 0);
+  transition: -webkit-transform 0.6s cubic-bezier(0.12, 0, 0.39, 0);
+  transition: transform 0.6s cubic-bezier(0.12, 0, 0.39, 0);
+  transition: transform 0.6s cubic-bezier(0.12, 0, 0.39, 0), -webkit-transform 0.6s cubic-bezier(0.12, 0, 0.39, 0);
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-name: onclickBttn;
+          animation-name: onclickBttn;
+}
+
+@-webkit-keyframes onclickBttn {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes onclickBttn {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.music-logos {
+  width: 32rem;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+.trackContainer {
+  height: 44vh;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hideGenres {
+  display: none;
+  height: 0;
+}
+
+.openMediaHeight {
+  margin-bottom: 35vh;
+}
+
+.pausedMediaHeight {
+  margin-bottom: 86%;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playingMediaHeight {
+  margin-bottom: 64%;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.album-container {
+  background-color: #464646;
+  position: relative;
+  z-index: 1;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.album-cover {
+  width: 100%;
+  height: 42vh;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spinning-cover {
+  border-radius: 50%;
+  -webkit-animation-name: spinning-album;
+          animation-name: spinning-album;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  width: 70%;
+  padding: 4% 0;
+  margin-left: 14%;
+  position: relative;
+  top: 7px;
+  height: auto;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+@-webkit-keyframes spinning-album {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinning-album {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.paused-album-cover {
+  border-radius: 50%;
+  width: 100%;
+  padding: 4%;
+  height: auto;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.track-information {
+  height: 36vh;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-transform: translateY(-38vh);
+          transform: translateY(-38vh);
+  background-color: #464646;
+}
+
+.animation-start {
+  -webkit-transform: translateY(-9px);
+          transform: translateY(-9px);
+  padding-top: 5%;
+  -webkit-transition-duration: 2.5s;
+          transition-duration: 2.5s;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.track-info {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 16rem;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 54%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4%;
+  text-align: center;
+}
+
+.track-controls {
+  position: relative;
+  bottom: 25%;
+  left: -4%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.play-btn {
+  position: relative;
+  top: 26px;
+  right: 102px;
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 70ms;
+  transition: all 70ms;
+}
+
+.fa-play {
+  position: relative;
+  top: 27%;
+  left: 36%;
+  font-size: 120%;
+  color: #464646;
+}
+
+.fa-pause {
+  position: relative;
+  top: 27%;
+  left: 30%;
+  font-size: 120%;
+  color: #464646;
+}
+
+.volume-control {
+  position: relative;
+  top: 20px;
+  right: -16px;
+  width: 20%;
+}
+
+.fa-volume-up {
+  position: relative;
+  top: 10px;
+  left: -29px;
+}
+
+.volume-logo {
+  color: #fff;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 146%;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  background: white;
+  border-radius: 0;
+  border: 0px solid #000101;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+          box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -7px;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  background: #fff;
+  border-radius: 0;
+  border: 0px solid #000101;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+  padding-top: 5px;
+}
+
+.bottom-section {
+  background-color: #BCBCBC;
+  width: 100%;
+  height: 22%;
+}
+
+.bottom-section .bottom-img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 39%;
+  position: relative;
+  top: 1%;
+  right: 8%;
+}
+
+.bottom-section .text-container {
+  position: relative;
+  bottom: 137px;
+  margin-left: 17%;
+}
+
+.bottom-section .text-container .bottom-text {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: #464646;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  background: #464646;
+  color: #fff;
+  font-weight: 600;
+  width: 100%;
+  height: 9%;
+  margin-top: 8%;
+}
+
+footer .bottom-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+}
+
+.about-header {
+  background-image: url("https://images.unsplash.com/35/hKViPxgDRGuiGns6wv5S_IMG_5317.jpeg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+  height: 36vh;
+}
+
+.about-desc {
+  font-family: 'Cormorant', serif;
+  font-size: 15rem;
+  font-style: italic;
+  font-weight: bold;
+  color: #040404;
+  text-align: center;
+  margin: 21% 0;
+}
+
+.about-img-container {
+  position: relative;
+  bottom: 6vh;
+}
+
+.about-img-container .about-music-img {
+  width: 56%;
+  margin: 0% auto;
+  border-radius: 5%;
+}
+
+.contact-header {
+  background-image: url("https://images.unsplash.com/photo-1578979807403-1bae8e564a14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80");
+  height: 42vh;
+}
+
+.social-container {
+  position: relative;
+  top: 17vh;
+  text-align: center;
+}
+
+.social-container .contact-text {
+  font-family: 'Cormorant', serif;
+  font-weight: 700;
+  font-size: 21rem;
+}
+
+.social-container .media-links {
+  background: lightgrey;
+  margin-top: 12%;
+  border: 5px solid;
+}
+
+.social-container .media-links .instagram, .social-container .media-links .twitter, .social-container .media-links .github, .social-container .media-links .linkedin {
+  margin-right: 6%;
+  font-size: 43rem;
+}
+
+.social-container .media-links .fa-instagram, .social-container .media-links .fa-twitter, .social-container .media-links .fa-github {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+}
+
+.social-container .media-links .fa-instagram:hover {
+  color: #8a3ab9;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+}
+
+.social-container .media-links .fa-twitter:hover {
+  color: #1DA1F2;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+}
+
+.social-container .media-links .fa-github:hover {
+  color: #211F1F;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+}
+
+.social-container .media-links .fa-linkedin:hover {
+  color: #2867B2;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+}
+
+/*==================Mobile Devices============================*/
+@media (min-width: 375px) {
+  .title {
+    bottom: 4vh;
+  }
+  .track-info {
+    font-size: 17rem;
+  }
+  .play-btn {
+    top: 26px;
+    width: 50px;
+    height: 50px;
+    right: 109px;
+  }
+  .fa-play {
+    top: 31%;
+    left: 36%;
+    font-size: 133%;
+  }
+  .fa-pause {
+    font-size: 138%;
+  }
+}
+
+@media (min-width: 375px) and (min-height: 812px) {
+  .track-info {
+    margin-bottom: 13%;
+  }
+  .playingMediaHeight {
+    margin-bottom: 86%;
+  }
+  .pausedMediaHeight {
+    margin-bottom: 84%;
+  }
+  .bottom-section .text-container {
+    position: relative;
+    bottom: 88%;
+    margin-left: 17%;
+  }
+}
+
+@media (min-width: 414px) and (min-height: 896px) {
+  header .top-header .menu-logo-container h2 {
+    font-size: 15rem;
+  }
+  header .top-header .menu-logo-container .earbuds-img {
+    width: 29rem;
+  }
+  header .title {
+    width: 43%;
+    font-size: 25rem;
+  }
+  .openMediaHeight {
+    margin-bottom: 30vh;
+  }
+  .pausedMediaHeight {
+    margin-bottom: 72%;
+  }
+  .playingMediaHeight {
+    margin-bottom: 46%;
+  }
+  .track-info {
+    font-size: 20rem;
+  }
+  .track-controls {
+    bottom: 32%;
+  }
+  .play-btn {
+    top: 32px;
+    width: 55px;
+    height: 55px;
+    right: 118px;
+  }
+  .fa-play {
+    font-size: 143%;
+  }
+  .fa-pause {
+    font-size: 146%;
+    top: 29%;
+  }
+  .spinning-cover {
+    width: 66%;
+    margin-left: 17%;
+  }
+  .bottom-section .text-container .bottom-text {
+    font-size: 17rem;
+  }
+}
+
+/*================================Tablet Devices=======================================*/
+@media (min-width: 768px) {
+  header {
+    height: 60vh;
+  }
+  header .title {
+    bottom: -8vh;
+    font-size: 46rem;
+  }
+  .music-showcase-section {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .music-showcase-section .music-menu {
+    margin: 7% 0;
+    font-size: 18rem;
+  }
+  .music-showcase-section .music-menu .music-genre {
+    font-size: 18rem;
+  }
+  .music-showcase-section .music-menu .music-genre .music-logos {
+    width: 48rem;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+  }
+  .music-showcase-section .openMediaHeight {
+    margin-bottom: 69%;
+  }
+  .music-showcase-section .playingMediaHeight {
+    margin-bottom: 66%;
+  }
+  .music-showcase-section .pausedMediaHeight {
+    margin-bottom: 91%;
+  }
+  .music-showcase-section .track-information {
+    height: 38vh;
+  }
+  .music-showcase-section .track-info {
+    font-size: 28rem;
+    margin-top: 0;
+    margin-bottom: 8%;
+    height: 23vh;
+  }
+  .music-showcase-section .track-controls {
+    bottom: 32%;
+    left: -4%;
+  }
+  .music-showcase-section .play-btn {
+    top: 39px;
+    width: 70px;
+    height: 70px;
+    right: 178px;
+  }
+  .music-showcase-section .fa-play {
+    font-size: 195%;
+    top: 29%;
+    left: 36%;
+  }
+  .music-showcase-section .fa-pause {
+    font-size: 184%;
+    top: 31%;
+  }
+  .music-showcase-section .track-seek-container {
+    position: relative;
+    right: 9%;
+  }
+  .music-showcase-section .volume-control {
+    position: relative;
+    top: 20px;
+    right: 1%;
+    width: 13%;
+  }
+  .music-showcase-section .fa-volume-up {
+    position: relative;
+    top: 17px;
+    left: -44px;
+    font-size: 28rem;
+  }
+  .music-showcase-section input[type="range"] {
+    -webkit-appearance: none;
+    width: 226%;
+  }
+  .music-showcase-section input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+  }
+  .music-showcase-section input[type="range"]::-webkit-slider-thumb {
+    height: 25px;
+    width: 25px;
+    margin-top: -9px;
+  }
+  .bottom-section .bottom-img {
+    width: 31%;
+    top: 1%;
+  }
+  .bottom-section .text-container {
+    position: relative;
+    bottom: 93%;
+    margin-left: 17%;
+  }
+  .bottom-section .text-container .bottom-text {
+    font-size: 25rem;
+  }
+  /*========================= About page =====================================*/
+  .about-header {
+    background-position: left;
+  }
+  .about-desc {
+    font-size: 25rem;
+    padding: 0 9%;
+  }
+  /*==================== Contact ==============================*/
+  .contact-header {
+    height: 66vh;
+  }
+  .social-container .contact-text {
+    font-size: 28rem;
+  }
+  .social-container .media-links {
+    margin-top: 6%;
+  }
+}
+
+@media (min-width: 1366px) {
+  header {
+    height: 83vh;
+    position: relative;
+    z-index: 2;
+  }
+  header .top-header {
+    background-color: #464646;
+    height: 9vh;
+  }
+  header .top-header .menu-logo-container {
+    margin-bottom: .5em;
+    padding: 9rem 9rem;
+  }
+  header .top-header .menu-logo-container .earbuds-img {
+    width: 33rem;
+    margin: 0;
+  }
+  header .top-header .menu-logo-container .logo-title {
+    display: none;
+  }
+  header .top-header .menu-btn {
+    display: none;
+  }
+  header .top-header .desktop-nav-container {
+    width: 100%;
+  }
+  header .top-header .desktop-nav-container .desktop-nav {
+    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    height: 5vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #fff;
+    height: 8vh;
+    font-size: 24rem;
+    font-weight: 300;
+  }
+  header .top-header .desktop-nav-container .desktop-nav li:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+  @-webkit-keyframes titleAnimation {
+    0% {
+      -webkit-transform: translateX(-150%);
+              transform: translateX(-150%);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  @keyframes titleAnimation {
+    0% {
+      -webkit-transform: translateX(-150%);
+              transform: translateX(-150%);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+  }
+  .title {
+    bottom: 15%;
+    font-size: 66rem;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-name: titleAnimation;
+            animation-name: titleAnimation;
+  }
+  @-webkit-keyframes musicMenuAnimation {
+    0% {
+      -webkit-transform: translateY(-250%);
+              transform: translateY(-250%);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes musicMenuAnimation {
+    0% {
+      -webkit-transform: translateY(-250%);
+              transform: translateY(-250%);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  .music-menu {
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-name: musicMenuAnimation;
+            animation-name: musicMenuAnimation;
+  }
+  .music-menu .music-logos {
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+  .music-menu .music-logos:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+  .music-display {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .music-display .containerHide {
+    -webkit-transform: translateY(-198px);
+            transform: translateY(-198px);
+  }
+  .music-display .trackContainer {
+    width: 31%;
+    margin-right: 2%;
+    height: 26.5vh;
+  }
+  .music-display .trackContainer .album-cover {
+    height: 25vh;
+  }
+  .music-display .trackContainer .spinning-cover {
+    height: 23vh;
+    width: 72%;
+    margin-left: 38px;
+    position: relative;
+    top: 2px;
+  }
+  .music-display .trackContainer .paused-album-cover {
+    width: 92%;
+    margin-left: 8%;
+  }
+  .music-display .openMediaHeight {
+    margin-bottom: 0;
+    margin-right: 35%;
+    -webkit-transition-duration: 2.5s;
+            transition-duration: 2.5s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .music-display .track-information {
+    height: 25vh;
+    -webkit-transform: translateY(-25vh);
+            transform: translateY(-25vh);
+  }
+  .music-display .track-information .track-info {
+    font-size: 14rem;
+    height: 15vh;
+    margin-left: 6%;
+  }
+  .music-display .track-information .track-controls {
+    left: 0;
+    bottom: 31%;
+  }
+  .music-display .track-information .track-controls .play-btn {
+    top: 19px;
+    width: 35px;
+    height: 35px;
+    right: 81px;
+  }
+  .music-display .track-information .track-controls .play-btn .fa-play {
+    font-size: 104%;
+    top: 29%;
+    left: 34%;
+  }
+  .music-display .track-information .track-controls .play-btn .fa-pause {
+    font-size: 104%;
+    top: 31%;
+  }
+  .music-display .track-information .track-controls .volume-control {
+    position: relative;
+    top: 15px;
+    right: -7%;
+    width: 31%;
+  }
+  .music-display .track-information .track-controls .fa-volume-up {
+    top: 10px;
+    left: -25px;
+    font-size: 15rem;
+  }
+  .music-display .track-information .track-controls .track-seek-container {
+    right: -6%;
+  }
+  .music-display .track-information .track-controls input[type="range"] {
+    width: 104%;
+  }
+  .music-display .track-information .track-controls input[type="range"]::-webkit-slider-runnable-track {
+    height: 3px;
+  }
+  .music-display .track-information .track-controls input[type="range"]::-webkit-slider-thumb {
+    height: 15px;
+    width: 15px;
+    margin-top: -6px;
+  }
+  .music-display .animation-start {
+    -webkit-transform: translate(16.3vw, -25vh);
+            transform: translate(16.3vw, -25vh);
+    width: 116%;
+    -webkit-transition-duration: 2.5s;
+            transition-duration: 2.5s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .music-display .deskViewTrackInfo {
+    -webkit-transform: translate(14.8vw, -23vh);
+            transform: translate(14.8vw, -23vh);
+    height: 23vh;
+  }
+  .bottom-section .text-container {
+    position: relative;
+    bottom: 154%;
+    margin-left: 17%;
+  }
+  .bottom-section .bottom-img {
+    width: 26%;
+    top: -19%;
+    right: 4%;
+  }
+  .bottom-nav li:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+  }
+  /*========================== About ========================================================*/
+  .about-header {
+    background-position: bottom;
+    height: 97vh;
+  }
+  .about-header .about-title {
+    bottom: -47vh;
+  }
+  .about-desc {
+    font-size: 31rem;
+    padding: 0 12%;
+  }
+  /*Contact*/
+  .contact-header {
+    height: 76vh;
+  }
+}
+
+@media (min-width: 1504px) {
+  .music-display .animation-start {
+    -webkit-transform: translate(13.5vw, -25vh);
+            transform: translate(13.5vw, -25vh);
+    -webkit-transition-duration: 2.5s;
+            transition-duration: 2.5s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .music-display .openMediaHeight {
+    margin-right: 35%;
+  }
+  .music-display .playingMediaHeight {
+    margin-top: 2%;
+  }
+  .music-display .deskViewTrackInfo {
+    -webkit-transform: translate(13.5vw, -23vh);
+            transform: translate(13.5vw, -23vh);
+    -webkit-transition-duration: 2.5s;
+            transition-duration: 2.5s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .music-display .trackContainer .spinning-cover {
+    width: 84%;
+    margin-left: 14px;
+  }
+  .music-display .trackContainer .paused-album-cover {
+    width: 114%;
+    margin-left: 0%;
+  }
+  .bottom-section .bottom-img {
+    width: 26%;
+    top: 3%;
+    right: -1%;
+  }
+  .bottom-section .text-container {
+    bottom: 125%;
+  }
+  /*Contact*/
+  .social-container {
+    top: 7vh;
+  }
+}
+
+@media (min-width: 1920px) {
+  header .top-header .menu-logo-container {
+    margin-bottom: .5em;
+    padding: 17rem 9rem;
+  }
+  .music-display .animation-start {
+    -webkit-transform: translate(10.6vw, -25vh);
+            transform: translate(10.6vw, -25vh);
+  }
+  .music-display .deskViewTrackInfo {
+    -webkit-transform: translate(10.5vw, -23vh);
+            transform: translate(10.5vw, -23vh);
+  }
+  .music-display .trackContainer .spinning-cover {
+    width: 91%;
+  }
+  .music-display .trackContainer .paused-album-cover {
+    width: 100%;
+    padding-top: 11%;
+  }
+  .bottom-section .bottom-img {
+    width: 30.2%;
+  }
+  .bottom-section .text-container {
+    bottom: 134%;
+  }
+}
+/*# sourceMappingURL=main.css.map */
