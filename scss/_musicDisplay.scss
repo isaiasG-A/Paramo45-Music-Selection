@@ -1,0 +1,242 @@
+.music-showcase-section {
+  margin: 21rem 0;
+
+  .music-menu {
+    height: 67rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+    .music-genre {
+      cursor: pointer;
+      @include musicMenuFont;
+      @include generalAnimation;
+    }
+    .clickBttns {
+      @include onClickAnimantion(onclickBttn);
+
+      }
+
+      @keyframes onclickBttn {
+        0% {
+          transform: scale(0.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
+
+
+
+.music-logos {
+  width: 32rem; //%
+  margin: 0 auto;
+  padding-bottom: 5rem; //em
+}
+
+.trackContainer {
+  height: 44vh;
+  @include generalAnimation();  
+}
+
+.hideGenres{
+  display: none;
+  height: 0;
+}
+
+.openMediaHeight {
+margin-bottom: 35vh;
+}
+
+.pausedMediaHeight {
+  margin-bottom: 86%;
+  @include generalAnimation();
+}
+
+.playingMediaHeight {
+  margin-bottom: 64%;  
+  @include generalAnimation();
+}
+
+.album-container {
+  background-color: $black;
+  position: relative;
+  z-index: 1;
+  @include generalAnimation();
+}
+
+.album-cover {
+  width: 100%;
+  height: 42vh;
+  object-fit: fill;
+  @include generalAnimation();
+}
+  
+.spinning-cover {
+  border-radius: 50%;
+  animation-name: spinning-album;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  @include generalAnimation();
+
+  width: 70%;
+  padding: 4% 0;
+  margin-left: 14%;
+  position: relative;
+  top: 7px;
+  height: auto;
+  object-fit: fill;
+}
+      
+@keyframes spinning-album {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+  
+.paused-album-cover {
+  border-radius: 50%;
+  width: 100%;
+  padding: 4%;
+  height: auto;
+  object-fit: fill;
+
+}  
+
+.track-information {
+  height: 36vh;
+  @include generalAnimation();
+  transform: translateY(-38vh);
+  background-color: $black;
+
+}
+
+.animation-start {
+  transform: translateY(-9px);
+  padding-top: 5%;
+  @include generalAnimation();
+
+}
+
+.track-info {
+  @include trackInfoFont();
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 54%;
+  align-items: center;
+  margin-bottom: 4%;
+  text-align: center;
+}
+
+.track-controls {
+  position: relative;
+  bottom: 25%;
+  left: -4%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+}
+
+.play-btn {
+  @include volControlandPlayBtn(26px, 102px);
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background-color: $white;
+  cursor: pointer;
+  transition: all 70ms;
+}
+
+.fa-play {
+  @include positioningVolElem(27%, 36%);
+  font-size: 120%;
+  color: $black;
+}
+
+.fa-pause {
+  @include positioningVolElem(27%, 30%);
+  font-size: 120%;
+  color: $black;
+}
+
+.volume-control {
+  @include volControlandPlayBtn(20px, -16px);
+  width: 20%;
+}
+
+.fa-volume-up {
+  @include positioningVolElem(10px, -29px);
+}
+
+  .volume-logo {
+    color: $white;
+  }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 146%;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  background:white;
+  border-radius: 0;
+  border: 0px solid #000101;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: $white;
+  cursor: pointer;
+  margin-top: -7px;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  background: $white;
+  border-radius: 0;
+  border: 0px solid #000101;
+} 
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+  padding-top: 5px;
+}
+
+
+
+
+
+
+

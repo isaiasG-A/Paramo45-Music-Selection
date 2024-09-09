@@ -1,0 +1,330 @@
+@media (min-width: 1366px) {
+	header {
+		height: 83vh;
+		position: relative;
+		z-index: 2;
+
+		.top-header {
+			background-color: $black;
+			height: 9vh;
+
+			.menu-logo-container {
+				margin-bottom: .5em;
+				padding: 9rem 9rem;
+
+				.earbuds-img {
+					width: 33rem;
+					margin: 0;
+				}
+
+				.logo-title {
+					display: none;
+				}
+			}
+
+			.menu-btn {
+				display: none;
+			}
+
+			.desktop-nav-container {
+				width: 100%;
+
+				.desktop-nav {
+					display: block;
+					display: flex;
+					justify-content: space-around;
+					height: 5vh;
+					align-items: center;
+					color: $white;
+					height: 8vh;
+					font-size: 24rem;
+					font-weight: 300;
+
+					li:hover {
+						transform: scale(1.2);
+						@include hoverAnimation;
+					}
+				}
+			}
+		}
+	}
+
+	@keyframes titleAnimation {
+		0% {
+			transform: translateX(-150%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+	.title {
+		bottom: 15%;
+		font-size: 66rem;
+
+		@include loadUpAnimation(titleAnimation, 0s);
+	}
+
+	@keyframes musicMenuAnimation {
+		0% {
+			transform: translateY(-250%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	.music-menu {
+		@include loadUpAnimation(musicMenuAnimation, 0.5s);
+
+		.music-logos {
+			@include hoverAnimation;
+		}
+
+		.music-logos:hover {
+			transform: scale(1.2);
+			@include hoverAnimation;
+		}
+	}
+
+	.music-display {
+		display: flex;
+		flex-wrap: wrap;
+
+		.containerHide {
+			transform: translateY(-198px);
+		}
+		.trackContainer {
+			width: 31%;
+			margin-right: 2%;
+			height: 26.5vh;
+
+			.album-cover {
+				height: 25vh;
+			}
+
+			.spinning-cover {
+				height: 23vh;
+				width: 72%;
+				margin-left: 38px;
+				position: relative;
+				top: 2px;
+			}
+
+			.paused-album-cover {
+				width: 92%;
+				margin-left: 8%;
+			}
+		}
+		.openMediaHeight {
+			margin-bottom: 0;
+			margin-right: 35%;
+			@include generalAnimation;
+		}
+		.track-information {
+			height: 25vh;
+			transform: translateY(-25vh);
+
+			.track-info {
+				font-size: 14rem;
+				height: 15vh;
+				margin-left: 6%;
+			}
+
+			.track-controls {
+				left: 0;
+				bottom: 31%;
+
+				.play-btn {
+					top: 19px;
+					width: 35px;
+					height: 35px;
+					right: 81px;
+
+					.fa-play {
+						font-size: 104%;
+						top: 29%;
+						left: 34%;
+					}
+
+					.fa-pause {
+						font-size: 104%;
+						top: 31%;
+					}
+				}
+
+				.volume-control {
+					position: relative;
+					top: 15px;
+					right: -7%;
+					width: 31%;
+				}
+
+				.fa-volume-up {
+					top: 10px;
+					left: -25px;
+					font-size: 15rem;
+				}
+
+				.track-seek-container {
+					right: -6%;
+				}
+
+				input[type="range"] {
+					width: 104%;
+				}
+
+				input[type="range"]::-webkit-slider-runnable-track {
+					height: 3px;
+				}
+
+				input[type="range"]::-webkit-slider-thumb {
+					height: 15px;
+					width: 15px;
+					margin-top: -6px;
+				}
+			}
+		}
+		.animation-start {
+			transform: translate(16.3vw, -25vh);
+			width: 116%;
+			@include generalAnimation;
+		}
+
+		.deskViewTrackInfo {
+			transform: translate(14.8vw, -23vh);
+			height: 23vh;
+		}
+	}
+
+	.bottom-section {
+		.text-container {
+			position: relative;
+			bottom: 154%;
+			margin-left: 17%;
+		}
+		.bottom-img {
+			width: 26%;
+			top: -19%;
+			right: 4%;
+		}
+	}
+
+	.bottom-nav {
+		li:hover {
+			transform: scale(1.2);
+			@include hoverAnimation;
+		}
+	}
+	/*========================== About ========================================================*/
+
+	.about-header {
+		background-position: bottom;
+		height: 97vh;
+
+		.about-title {
+			bottom: -47vh;
+		}
+	}
+
+	.about-desc {
+		font-size: 31rem;
+		padding: 0 12%;
+	}
+
+	/*Contact*/
+
+	.contact-header {
+		height: 76vh;
+	}
+}
+
+@media (min-width: 1504px) {
+	.music-display {
+		.animation-start {
+			transform: translate(13.5vw, -25vh);
+			@include generalAnimation;
+		}
+		.openMediaHeight {
+			margin-right: 35%;
+		}
+
+		.playingMediaHeight {
+			margin-top: 2%;
+		}
+		.deskViewTrackInfo {
+			transform: translate(13.5vw, -23vh);
+			@include generalAnimation;
+		}
+
+		.trackContainer {
+			.spinning-cover {
+				width: 88%;
+				margin-left: 14px;
+			}
+
+			.paused-album-cover {
+				width: 114%;
+				margin-left: 0%;
+			}
+		}
+	}
+
+	.bottom-section {
+		.bottom-img {
+			width: 26%;
+			top: 3%;
+			right: -1%;
+		}
+
+		.text-container {
+			bottom: 125%;
+		}
+	}
+
+	/*Contact*/
+
+	.social-container {
+		top: 7vh;
+	}
+}
+
+@media (min-width: 1920px) {
+	header {
+		.top-header {
+			.menu-logo-container {
+				margin-bottom: .5em;
+				padding: 17rem 9rem;
+			}
+		}
+	}
+
+	.music-display {
+		.animation-start {
+			transform: translate(10.6vw, -25vh);
+		}
+
+		.deskViewTrackInfo {
+			transform: translate(10.5vw, -23vh);
+		}
+
+		.trackContainer {
+			.spinning-cover {
+				width: 91%;
+			}
+
+			.paused-album-cover {
+				width: 100%;
+				padding-top: 11%;
+			}
+		}
+	}
+
+	.bottom-section {
+		.bottom-img {
+			width: 30.2%;
+		}
+		.text-container {
+			bottom: 134%;
+		}
+	}
+}
